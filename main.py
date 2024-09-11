@@ -14,8 +14,11 @@ import os
 import json
 import requests
 
+from wix_files import download_wix_file
+
 
 # Getting the download urls for files uploaded by user on wix site
+# and transferred through request on wix server side to activate GitHub workflow action
 def get_data():
     json_vars = os.getenv('JSON_VARS')
     urls_dict = json.loads(json_vars)  # Decode JSON string into a dictionary
@@ -24,5 +27,11 @@ def get_data():
     return download_url1, download_url2
 
 
-def get_file(url):
-    pass
+# The main function running the integrated process
+def run_match_app(url):
+    # Getting wix download urls
+    download_url1, download_url2 = get_data()
+    # Making dataframes from the wix files
+    df1 = download_wix_file(download_url1)
+    df2 = download_wix_file(download_url1)
+
