@@ -1,0 +1,43 @@
+name: run_match
+on:
+  workflow_dispatch:
+    inputs:
+      json_vars:
+        description: 'JSON-encoded string of download urls'
+        required: true
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+    outputs:
+      result: ${{ steps.set_output.outputs.result }}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+            python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+
+      - name: Set up Git to use ACCESS_TOKEN
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          git remote set-url origin https://x-access-token:${ACCESS_TOKEN}@github.com/${{ github.repository }}.git
+
+      - name: Run script
+        id: run_script
+        run: |
+          python main.py
+        env:
+          JSON_VARS: ${{ github.event.inputs.json_vars }}
