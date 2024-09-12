@@ -46,15 +46,15 @@ def data_integrity(df1, df2):
                     if check3_df2 == 0:
                         return 'all_tests', 0
                     else:
-                        return 'check3_df2', 1
+                        return 'Preferences in file 1 are not consistent with names in file 2', 1
                 else:
-                    return 'check3_df1', 1
+                    return 'Preferences in file 2 are not consistent with names in file 1', 1
             else:
-                return 'check2_df2', 1
+                return 'Identical entries in preferences in file 2', 1
         else:
-            return 'check2_df1', 1
+            return 'Identical entries in preferences in file 1', 1
     else:
-        return 'check1', 1
+        return 'Number of entries in file 2 is smaller than entries in file 1', 1
 
 
 
