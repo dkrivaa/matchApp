@@ -91,5 +91,5 @@ def read_csv(response):
     csv_data = StringIO(text_data)
     # Load the CSV content into a pandas DataFrame
     df = pd.read_csv(csv_data)
-    print(df.columns)
+    print('columns', df.columns)
     return df

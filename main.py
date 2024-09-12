@@ -27,6 +27,8 @@ def get_data():
         urls_dict = json.loads(json_vars)  # Decode JSON string into a dictionary
         download_url1 = urls_dict['downloadUrl1']
         download_url2 = urls_dict['downloadUrl2']
+        print('download_url1', download_url1)
+        print('download_url2', download_url2)
         return download_url1, download_url2
     except Exception as e:
         print(f"An error occurred: {e}")
