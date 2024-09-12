@@ -43,6 +43,7 @@ def data_integrity(df1, df2):
             check2_df2 = test2(df2)
             if check2_df2 == 0:
                 check3_df1 = test3(df1, df2)
+                print('printing the result of df_1_names', check3_df1)
                 if check3_df1 == 0:
                     check3_df2 = test3(df2, df1)
                     if check3_df2 == 0:
