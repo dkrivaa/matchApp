@@ -27,17 +27,12 @@ def test2(df):
 def test3(df_1, df_2):
     # Convert df_1 first column to list of strings to avoid type mismatch
     df_1_names = df_1.iloc[:, 0].astype(str).tolist()
-    print('df_1_names: ', df_1_names)
-
     for index, row in df_2.iterrows():
         # Slice the row from the 2nd column to the last and convert to strings
         row_slice = row[1:].astype(str)  # Exclude the first column and ensure strings
-
         # Check if all items in row_slice are in df_1_names
         if not all(item in df_1_names for item in row_slice):
-            print('index: ', index, 'row_slice: ', row_slice)
             return 1  # Return 1 if any row contains an item not in df_1_names
-
     return 0  # Return 0 if all rows meet the condition
 
 
