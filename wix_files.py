@@ -5,6 +5,13 @@ from io import StringIO
 import chardet
 
 
+"""
+This file includes functions to download and create dataframe from a file uploaded by user  
+on wix site. It includes identifying file extensions (csv, Excel), encoding detection for
+csv files and conversion to utf-8 if needed
+"""
+
+
 # downloading file that user uploaded on wix, checking which type (Excel or csv) and making Dataframe
 def download_wix_file(download_url):
     # Map of common Content-Types to file extensions
@@ -34,17 +41,17 @@ def download_wix_file(download_url):
             # Map the Content-Type to a file extension
             file_extension = content_type_map.get(content_type, '')
             if file_extension == '.xlsx':
-                # Point to code that reads Excel files and returns dataframe
+                # Reads Excel file and returns dataframe
                 df = read_excel(response)
                 return df
             if file_extension == '.csv':
-                # Point to code that reads csv files and returns dataframe
+                # Reads csv file and returns dataframe
                 df = read_csv(response)
                 return df
 
             if not file_extension or file_extension not in ['.xlsx', '.csv']:
                 # Point to code that returns POST to wix saying file 'no good'
-                print('no good')
+                return 'no good'
 
         else:
             print(f"Failed to download file. Status code: {response.status_code}")
@@ -74,6 +81,7 @@ def encoding_csv(response):
         print("Could not detect encoding, using utf-8 by default.")
         text_data = raw_data.decode('utf-8')
     return text_data
+
 
 # Reading csv file from file uploaded by user on wix
 def read_csv(response):
