@@ -25,12 +25,14 @@ def test2(df):
 
 
 def test3(df_1, df_2):
-    df_1_names = df_1.iloc[:, 0].tolist
+    df_1_names = df_1.iloc[:, 0].tolist()  # Correcting the list conversion
     for index, row in df_2.iterrows():
         # Slice the row from the 2nd column to the last
         row_slice = row[1:]  # Exclude the first column
-        # Check if preferences in names list
-        return [0 if all(item in df_1_names for item in row_slice) else 1][0]
+        # Check if all items in row_slice are in df_1_names
+        if not all(item in df_1_names for item in row_slice):
+            return 1  # Return 1 if any row contains an item not in df_1_names
+    return 0  # Return 0 if all rows meet the condition
 
 
 def data_integrity(df1, df2):
