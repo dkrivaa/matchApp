@@ -41,8 +41,8 @@ def run_match_app():
     df2 = download_wix_file(download_url1)
 
     # Testing data in dataframes
-    message, result = data_integrity(df1, df2)
-    if result != 0:
+    message, test_result = data_integrity(df1, df2)
+    if test_result != 0:
         # Here goes code to return error to wix
         pass
 
