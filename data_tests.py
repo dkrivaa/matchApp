@@ -31,7 +31,7 @@ def test3(df_1, df_2):
         row_slice = row[1:]  # Exclude the first column
         # Check if all items in row_slice are in df_1_names
         if not all(item in df_1_names for item in row_slice):
-            print('row_slice: ',row_slice)
+            print('index: ', index, 'row_slice: ',row_slice)
             return 1  # Return 1 if any row contains an item not in df_1_names
     return 0  # Return 0 if all rows meet the condition
 
