@@ -26,6 +26,7 @@ def test2(df):
 
 def test3(df_1, df_2):
     df_1_names = df_1.iloc[:, 0].tolist()  # Correcting the list conversion
+    print('df_1_names: ', df_1_names)
     for index, row in df_2.iterrows():
         # Slice the row from the 2nd column to the last
         row_slice = row[1:]  # Exclude the first column
