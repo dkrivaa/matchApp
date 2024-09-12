@@ -16,6 +16,7 @@ import requests
 
 from wix_files import download_wix_file
 from data_tests import data_integrity
+from wix_requests import reading_request, tests_request, start_match_request
 
 
 # Getting the download urls for files uploaded by user on wix site
@@ -39,13 +40,15 @@ def run_match_app():
     # Making dataframes from the wix files
     df1 = download_wix_file(download_url1)
     df2 = download_wix_file(download_url1)
-
+    # Send update message
+    reading_request()
     # Testing data in dataframes
     message, test_result = data_integrity(df1, df2)
     if test_result != 0:
         # Here goes code to return error to wix
-        pass
-
+        tests_request(message)
+        exit()  # Exit script
+    start_match_request()
     # Run match process
 
 
