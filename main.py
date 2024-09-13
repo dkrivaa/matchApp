@@ -9,10 +9,9 @@ for download by the user through the wix site. The results are also send from th
 the wix site using wix site API (http requests) and presented on the site to user
 """
 
-import pandas as pd
 import os
 import json
-import requests
+import time
 
 from wix_files import download_wix_file
 from data_tests import data_integrity
@@ -43,6 +42,7 @@ def run_match_app():
     df2 = download_wix_file(download_url2)
     # Send update message
     reading_request()
+    time.sleep(10)
     # Testing data in dataframes
     message, test_result = data_integrity(df1, df2)
     if test_result != 0:
