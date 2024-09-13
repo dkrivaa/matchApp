@@ -34,10 +34,12 @@ def get_data():
 
 # The main function running the integrated process
 def run_match_app():
-    # Getting wix download urls
-    download_url1, download_url2 = get_data()
     # Send update message
     reading_request()
+
+    # Getting wix download urls
+    download_url1, download_url2 = get_data()
+
     # Making dataframes from the wix files
     df1 = download_wix_file(download_url1)
     df2 = download_wix_file(download_url2)
