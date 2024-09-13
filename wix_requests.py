@@ -37,14 +37,14 @@ def tests_request(message):
 def start_match_request():
     url = 'https://dannykrivaa.wixsite.com/matchapp/_functions/messages'
     data = {
-        'message': 'Files checked. Starting match process....'
+        'message': 'Files checked. Continuing process....'
     }
     generic_request(url, data)
 
 def finish_match_request():
     url = 'https://dannykrivaa.wixsite.com/matchapp/_functions/messages'
     data = {
-        'message': 'Finished match process, getting results....'
+        'message': 'Finished match process, transferring to results....'
     }
     generic_request(url, data)
 
