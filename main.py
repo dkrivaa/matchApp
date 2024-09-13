@@ -17,6 +17,7 @@ import requests
 from wix_files import download_wix_file
 from data_tests import data_integrity
 from wix_requests import reading_request, tests_request, start_match_request
+from match_engine import match
 
 
 # Getting the download urls for files uploaded by user on wix site
@@ -50,7 +51,10 @@ def run_match_app():
         exit()  # Exit script
     start_match_request()
     # Run match process
-
+    named_couples, lead_summary, compliment_summary = match(df1, df2)
+    print('named_couples', named_couples)
+    print('lead_summary', lead_summary)
+    print('compliment_summary', compliment_summary)
 
 if __name__ == '__main__':
     run_match_app()
