@@ -15,7 +15,7 @@ import time
 
 from wix_files import download_wix_file
 from data_tests import data_integrity
-from wix_requests import reading_request, tests_request, start_match_request
+from wix_requests import reading_request, tests_request, start_match_request, finish_match_request
 from match_engine import match
 
 
@@ -56,6 +56,8 @@ def run_match_app():
     print('named_couples', named_couples)
     print('lead_summary', lead_summary)
     print('compliment_summary', compliment_summary)
+    finish_match_request()
+
 
 if __name__ == '__main__':
     run_match_app()
