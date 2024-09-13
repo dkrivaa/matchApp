@@ -44,7 +44,7 @@ def start_match_request():
 def finish_match_request():
     url = 'https://dannykrivaa.wixsite.com/matchapp/_functions/messages'
     data = {
-        'message': 'Finished match process, transferring to results....'
+        'message': 'Finishing process, transferring to results....'
     }
     generic_request(url, data)
 
