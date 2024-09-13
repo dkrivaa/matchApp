@@ -36,13 +36,12 @@ def get_data():
 def run_match_app():
     # Getting wix download urls
     download_url1, download_url2 = get_data()
-
+    # Send update message
+    reading_request()
     # Making dataframes from the wix files
     df1 = download_wix_file(download_url1)
     df2 = download_wix_file(download_url2)
-    # Send update message
-    reading_request()
-    time.sleep(10)
+
     # Testing data in dataframes
     message, test_result = data_integrity(df1, df2)
     if test_result != 0:
