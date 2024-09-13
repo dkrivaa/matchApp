@@ -26,8 +26,8 @@ def match(df1, df2):
         [x, [pref1, pref2, pref3]]
     ]
     """
-    lead_list = df1.apply(lambda row: [row[0], row[1:].tolist()], axis=1).tolist()
-    compliment_list = df2.apply(lambda row: [row[0], row[1:].tolist()], axis=1).tolist()
+    lead_list = df1.apply(lambda row: [str(row[0]), list(map(str, row[1:]))], axis=1).tolist()
+    compliment_list = df2.apply(lambda row: [str(row[0]), list(map(str, row[1:]))], axis=1).tolist()
 
     # Making Lead and Compliment objects from data
     all_leads = [Lead(x, prefs) for [x, prefs] in lead_list]
