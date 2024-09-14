@@ -46,10 +46,11 @@ def run_match_app():
 
     # Testing data in dataframes
     message, test_result = data_integrity(df1, df2)
+    # If an error in files:
     if test_result != 0:
-        # Here goes code to return error to wix
         tests_request(message)
         exit()  # Exit script
+    # If no error, code continues
     start_match_request()
     # Run match process
     named_couples, lead_summary, compliment_summary = match(df1, df2)
