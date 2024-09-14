@@ -22,7 +22,7 @@ def generic_request(url, data):
 def reading_request():
     url = 'https://dannykrivaa.wixsite.com/matchapp/_functions/messages'
     data = {
-        'message': 'Getting files ready....'
+        'message': 'Running Match Process.....'
     }
     generic_request(url, data)
 
@@ -37,7 +37,7 @@ def tests_request(message):
 def start_match_request():
     url = 'https://dannykrivaa.wixsite.com/matchapp/_functions/messages'
     data = {
-        'message': 'Files checked. Continuing process....'
+        'message': 'Running Match Process.....'
     }
     generic_request(url, data)
 
