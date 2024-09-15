@@ -15,8 +15,9 @@ import time
 
 from wix_files import download_wix_file
 from data_tests import data_integrity
-from wix_requests import reading_request, tests_request, start_match_request, finish_match_request
+from wix_requests import reading_request, tests_request, start_match_request, finish_match_request, send_results_request
 from match_engine import match
+from results import prepare_results
 
 
 # Getting the download urls for files uploaded by user on wix site
@@ -59,6 +60,11 @@ def run_match_app():
     print('lead_summary', lead_summary)
     print('compliment_summary', compliment_summary)
     finish_match_request()
+    # Getting results ready to send to wix
+    match_results = prepare_results(named_couples, lead_summary, compliment_summary)
+    print(match_results)
+    send_results_request(match_results)
+
 
 
 

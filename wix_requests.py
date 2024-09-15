@@ -13,6 +13,7 @@ def generic_request(url, data):
         # Check if the request was successful
         if response.status_code == 200:
             print("Success! Data received:", response.json())
+            return response.status_code
         else:
             print(f"Failed with status code: {response.status_code}, Error: {response.text}")
     except Exception as e:
@@ -48,4 +49,7 @@ def finish_match_request():
     }
     generic_request(url, data)
 
-
+def send_results_request(match_results):
+    url = 'https://dannykrivaa.wixsite.com/matchapp/_functions/results'
+    data = match_results
+    generic_request(url, data)
