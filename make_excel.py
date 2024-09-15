@@ -9,9 +9,7 @@ from openpyxl.utils import get_column_letter
 
 def make_excel_file(couples_list):
     df = pd.DataFrame(couples_list)
-    print(df)
-    # df = df.drop(columns=['serial'])
-    df = df.reset_index()
+    df = df.reset_index(drop=True)
     df.to_excel('test.xlsx', index=False, header=False)
 
     # Format Excel file
