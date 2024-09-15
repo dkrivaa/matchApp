@@ -18,6 +18,7 @@ from data_tests import data_integrity
 from wix_requests import reading_request, tests_request, start_match_request, finish_match_request, send_results_request
 from match_engine import match
 from results import prepare_results
+from make_excel import make_excel_file
 
 
 # Getting the download urls for files uploaded by user on wix site
@@ -64,7 +65,7 @@ def run_match_app():
     match_results = prepare_results(named_couples, lead_summary, compliment_summary)
     print(match_results)
     send_results_request(match_results)
-
+    make_excel_file(named_couples)
 
 
 
