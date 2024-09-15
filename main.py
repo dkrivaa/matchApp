@@ -54,10 +54,12 @@ def run_match_app():
     start_match_request()
     # Run match process
     named_couples, lead_summary, compliment_summary = match(df1, df2)
+    # The results:
     print('named_couples', named_couples)
     print('lead_summary', lead_summary)
     print('compliment_summary', compliment_summary)
     finish_match_request()
+
 
 
 if __name__ == '__main__':
