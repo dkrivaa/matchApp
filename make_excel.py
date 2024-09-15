@@ -9,7 +9,7 @@ from openpyxl.utils import get_column_letter
 
 def make_excel_file(couples_list):
     df = pd.DataFrame(couples_list)
-
+    df = df.drop(columns=['index'])
     df = df.reset_index()
     df.to_excel('test.xlsx', index=False, header=False)
 
