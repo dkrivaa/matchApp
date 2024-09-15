@@ -10,7 +10,7 @@ from openpyxl.utils import get_column_letter
 def make_excel_file(couples_list):
     df = pd.DataFrame(couples_list, columns=['file 1', 'file 2'])
     df = df.reset_index(drop=True)
-    df.to_excel('test.xlsx', index=False, header=False)
+    df.to_excel('test.xlsx', index=False)
 
     # Format Excel file
     # format_excel_file('simulation.xlsx')
