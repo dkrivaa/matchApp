@@ -8,8 +8,9 @@ from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
 
 def make_excel_file(couples_list):
-    df = pd.DataFrame(couples_list, columns=['serial', 'file1', 'file2'])
-    df = df.drop(columns=['serial'])
+    df = pd.DataFrame(couples_list)
+    print(df)
+    # df = df.drop(columns=['serial'])
     df = df.reset_index()
     df.to_excel('test.xlsx', index=False, header=False)
 
