@@ -1,5 +1,5 @@
 """
-This program matches two sets according to the preferences of the elements in each set -
+This program matches two sets defined by user according to the preferences of the elements in each set -
 a list of open positions with preferences for specific candidates and a list of candidates
 with preferences for specific open positions.
 The frontend is a wix site that interacts with the user, gets files from user and invokes GitHub
